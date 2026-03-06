@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auden Partners — Merchant Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0d1b2a;
+      --ink:    #1a2e42;
+      --gold:   #b89455;
+      --gold-lt:#c9a96e;
+      --stone:  #f4f1ec;
+      --white:  #ffffff;
+      --muted:  #7a8a96;
+      --rule:   rgba(184,148,85,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      height: 72px;
+      background: rgba(13,27,42,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(184,148,85,0.2);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold-lt); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 60px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 78% 55%, rgba(184,148,85,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 15% 85%, rgba(26,46,66,0.7) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      max-width: 820px;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 560px;
+      line-height: 1.85;
+      margin-bottom: 60px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 56px;
+      margin-bottom: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(184,148,85,0.2);
+      max-width: 620px;
+    }
+
+    .hero-stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-cta:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+    .hero-cta::after { content: '→'; font-size: 0.85rem; }
+
+    .hero-rule {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 240px;
+      background: linear-gradient(to bottom, transparent, var(--gold) 40%, var(--gold) 60%, transparent);
+      opacity: 0.25;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 60px; }
+
+    .section-eyebrow {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--navy);
+      max-width: 680px;
+    }
+
+    .section-title em { font-style: italic; }
+
+    hr.rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 40px 0;
+      max-width: 80px;
+    }
+
+    /* ── CAPABILITIES ── */
+    .capabilities { background: var(--stone); }
+
+    .cap-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-bottom: 72px;
+    }
+
+    .cap-intro-text {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .cap-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(13,27,42,0.1);
+      margin-bottom: 48px;
+    }
+
+    .cap-tab {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 12px 28px 12px 0;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .cap-tab.active, .cap-tab:hover {
+      color: var(--navy);
+      border-bottom-color: var(--gold);
+    }
+
+    .cap-panels { position: relative; }
+
+    .cap-panel { display: none; }
+    .cap-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+
+    .cap-card {
+      background: var(--white);
+      padding: 44px 40px;
+      transition: box-shadow 0.3s;
+    }
+
+    .cap-card:hover { box-shadow: 0 8px 40px rgba(13,27,42,0.07); }
+
+    .cap-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .cap-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .cap-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cap-card ul li {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cap-card ul li::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── APPROACH ── */
+    .approach {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .approach .section-title { color: var(--white); }
+    .approach .section-title em { color: var(--gold-lt); }
+
+    .approach-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-top: 60px;
+      align-items: start;
+    }
+
+    .approach-text p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .approach-pillars {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar {
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(184,148,85,0.18);
+    }
+
+    .pillar:first-child { border-top: 1px solid rgba(184,148,85,0.18); }
+
+    .pillar-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .pillar p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.52);
+      line-height: 1.75;
+    }
+
+    /* ── INVESTMENT THEMES ── */
+    .themes { background: var(--white); }
+
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 60px;
+      background: rgba(13,27,42,0.07);
+    }
+
+    .theme-card {
+      background: var(--white);
+      padding: 40px 32px;
+    }
+
+    .theme-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: rgba(184,148,85,0.2);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .theme-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .theme-card p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+
+    /* ── TEAM ── */
+    .team { background: var(--stone); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .team-card {
+      background: var(--white);
+      padding: 44px 40px;
+    }
+
+    .team-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .team-card-title {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .team-card-bio {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .team-card-pedigree {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pedigree-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      border: 1px solid rgba(13,27,42,0.15);
+      padding: 3px 10px;
+    }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--navy); }
+    .contact .section-eyebrow { color: var(--gold); }
+    .contact .section-title { color: var(--white); }
+    .contact .section-title em { color: var(--gold-lt); }
+
+    hr.rule-light {
+      border: none;
+      border-top: 1px solid rgba(184,148,85,0.35);
+      margin: 40px 0;
+      max-width: 80px;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 60px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--white);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .form-group select option { background: var(--navy); }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      align-self: flex-start;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold);
+      border: none;
+      padding: 16px 36px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .form-submit:hover { background: var(--gold-lt); }
+
+    .contact-info { padding-top: 8px; }
+
+    .contact-info-lead {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.85;
+      margin-bottom: 44px;
+    }
+
+    .contact-detail { margin-bottom: 28px; }
+
+    .contact-detail-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+
+    .contact-detail a,
+    .contact-detail span {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .contact-detail a:hover { color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: rgba(0,0,0,0.35);
+      padding: 32px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(184,148,85,0.15);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .themes-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 28px; }
+      .nav-links { display: none; }
+
+      .hero { padding: 120px 28px 72px; }
+      .hero-rule { display: none; }
+      .hero-stats { gap: 32px; flex-wrap: wrap; }
+
+      section { padding: 72px 28px; }
+
+      .cap-intro,
+      .cap-panel.active,
+      .approach-body,
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+
+      .themes-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Auden<span>&nbsp;Partners</span></a>
+    <ul class="nav-links">
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#approach">Our Approach</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Merchant Banking &nbsp;·&nbsp; New York</p>
+    <h1>Integrated <em>capital</em><br>and advisory.</h1>
+    <p class="hero-sub">
+      Auden Partners is a merchant bank that combines disciplined principal investing
+      with transaction advisory expertise — bringing experienced judgment, creative
+      structuring, and aligned capital to complex situations.
+    </p>
+
+    <div class="hero-stats">
+      <div>
+        <p class="hero-stat-value">$550B+</p>
+        <p class="hero-stat-label">Transaction value advised</p>
+      </div>
+      <div>
+        <p class="hero-stat-value">150+</p>
+        <p class="hero-stat-label">Transactions completed</p>
+      </div>
+      <div>
+        <p class="hero-stat-value">25+</p>
+        <p class="hero-stat-label">Years avg. senior experience</p>
+      </div>
+    </div>
+
+    <a href="#contact" class="hero-cta">Begin a conversation</a>
+    <div class="hero-rule"></div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="capabilities" id="capabilities">
+    <p class="section-eyebrow">What We Do</p>
+    <h2 class="section-title">Two disciplines.<br><em>One integrated firm.</em></h2>
+    <hr class="rule" />
+
+    <div class="cap-intro">
+      <p class="cap-intro-text">
+        Auden Partners sits at the intersection of advice and capital. Our advisory professionals
+        advise with an investor's mindset. Our investment professionals structure with an advisor's
+        creativity. The result is a differentiated capability that neither a pure advisory firm
+        nor a pure investment firm can replicate.
+      </p>
+      <p class="cap-intro-text">
+        We work on a focused number of engagements, ensuring senior involvement at every stage —
+        from the first conversation to closing. Our flexibility on structure and compensation
+        reflects our commitment to aligning with the long-term interests of our clients and partners.
+      </p>
+    </div>
+
+    <div class="cap-tabs">
+      <button class="cap-tab active" onclick="showPanel('advisory', this)">Financial Advisory</button>
+      <button class="cap-tab" onclick="showPanel('capital', this)">Private Capital</button>
+      <button class="cap-tab" onclick="showPanel('integrated', this)">Integrated Solutions</button>
+    </div>
+
+    <div class="cap-panels">
+
+      <div class="cap-panel active" id="panel-advisory">
+        <div class="cap-card">
+          <h3>Restructuring &amp; Liability Management</h3>
+          <p>We advise companies and creditors on some of the most complex capital structure situations — in-court and out-of-court — with a track record spanning multiple market cycles.</p>
+          <ul>
+            <li>Chapter 11 advisory</li>
+            <li>Out-of-court restructurings</li>
+            <li>Exchange offers &amp; debt repurchases</li>
+            <li>Waivers, amendments &amp; consent solicitations</li>
+            <li>Creditor &amp; committee advisory</li>
+          </ul>
+        </div>
+        <div class="cap-card">
+          <h3>M&amp;A and Capital Raising</h3>
+          <p>We advise on the full range of strategic and financing transactions, bringing a principal investor's perspective to every engagement.</p>
+          <ul>
+            <li>Mergers &amp; acquisitions</li>
+            <li>Divestitures &amp; corporate carveouts</li>
+            <li>Debt, equity &amp; hybrid financings</li>
+            <li>Fairness opinions &amp; valuation</li>
+            <li>Expert testimony &amp; litigation support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cap-panel" id="panel-capital">
+        <div class="cap-card">
+          <h3>Middle Market Private Equity</h3>
+          <p>We partner with management teams to build value in North American middle market companies, with a flexible approach across the capital structure.</p>
+          <ul>
+            <li>Platform investments (EBITDA $10M–$75M)</li>
+            <li>Family-owned business acquisitions</li>
+            <li>Corporate carveouts</li>
+            <li>Buy-and-build strategies</li>
+            <li>Defensible, cash-generative business models</li>
+          </ul>
+        </div>
+        <div class="cap-card">
+          <h3>Special Situations &amp; Private Credit</h3>
+          <p>We invest opportunistically in distressed and complex situations where our advisory expertise and structuring capabilities create a differentiated edge.</p>
+          <ul>
+            <li>Distressed debt &amp; equity</li>
+            <li>Asset-backed finance</li>
+            <li>Structured debt &amp; preferred equity</li>
+            <li>Specialty finance &amp; whole-loan portfolios</li>
+            <li>Bespoke co-investment structures</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cap-panel" id="panel-integrated">
+        <div class="cap-card">
+          <h3>Hybrid Capital Solutions</h3>
+          <p>We invest our own capital alongside advisory engagements — a merchant banking model that enables creative solutions unavailable to traditional advisory-only or investment-only firms.</p>
+          <ul>
+            <li>Principal co-investment alongside clients</li>
+            <li>Structured debt, equity &amp; preferred instruments</li>
+            <li>Capital structure optimization</li>
+            <li>Convertible &amp; hybrid instruments</li>
+          </ul>
+        </div>
+        <div class="cap-card">
+          <h3>Aligned Advisory</h3>
+          <p>When appropriate, we align our fee structure with our clients' outcomes — including deferred, contingent, or equity-based compensation — so our interests are structurally aligned with yours.</p>
+          <ul>
+            <li>Flexible remuneration structures</li>
+            <li>Retainer, success fee &amp; hybrid arrangements</li>
+            <li>Long-term equity participation</li>
+            <li>Management incentive design</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="approach" id="approach">
+    <p class="section-eyebrow">Our Approach</p>
+    <h2 class="section-title">Aligned interests.<br><em>Unconflicted advice.</em></h2>
+    <hr class="rule" style="border-color: rgba(184,148,85,0.4);" />
+
+    <div class="approach-body">
+      <div class="approach-text">
+        <p>
+          Auden Partners was founded on a straightforward belief: the best outcomes
+          come when advisors and investors share the same incentives as their clients.
+          As a merchant bank, we can advise, invest, or do both — and we are transparent
+          about which role we are playing in every situation.
+        </p>
+        <p>
+          We take on a focused number of mandates. Our senior professionals are involved
+          in every aspect of every engagement — not just the pitch. We work discreetly,
+          and we bring creative, unconventional thinking to situations where conventional
+          approaches have fallen short.
+        </p>
+        <p>
+          Our professionals have led some of the most complex and consequential
+          transactions in recent history — restructurings, carveouts, financings, and
+          investments spanning dozens of industries and geographies.
+        </p>
+      </div>
+
+      <div class="approach-pillars">
+        <div class="pillar">
+          <p class="pillar-label">Investor Mindset</p>
+          <p>We advise the way we would invest — with rigorous analysis, creative structuring, and a focus on alignment and outcomes over activity.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-label">Senior Attention</p>
+          <p>Our most experienced professionals lead every engagement from origination through execution. We don't delegate to junior teams.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-label">Creative Structuring</p>
+          <p>We thrive in complexity. When a transaction requires a bespoke structure, we have the experience and flexibility to design it.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-label">Discretion</p>
+          <p>We are experienced working quietly to resolve situations comprehensively — and our clients trust us with their most sensitive matters.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-label">Long-Term Orientation</p>
+          <p>We measure success by outcomes, not volume. Our client relationships are built to endure beyond any single transaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT THEMES -->
+  <section class="themes" id="themes">
+    <p class="section-eyebrow">Investment Themes</p>
+    <h2 class="section-title">Where we find <em>opportunity.</em></h2>
+    <hr class="rule" />
+
+    <div class="themes-grid">
+      <div class="theme-card">
+        <div class="theme-num">01</div>
+        <h3>Corporate Carveouts</h3>
+        <p>We have specific expertise structuring corporate carveouts — acquiring non-core assets and liabilities to help parent companies concentrate on core strengths, structured to avoid book value impairment.</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-num">02</div>
+        <h3>Distressed Assets</h3>
+        <p>We seek investment opportunities across distressed debt and equity, and strive to unlock value through restructurings of complex capital structures where our advisory experience creates an edge.</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-num">03</div>
+        <h3>Family-Owned Businesses</h3>
+        <p>We have a proven track record of partnering with family-owned businesses and experienced management teams — creating transaction structures that align incentives and build lasting value.</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-num">04</div>
+        <h3>Asset-Backed Finance</h3>
+        <p>We invest in specialty finance originators, loan servicers, and whole-loan portfolios, with the ability to create bespoke structured purchase mechanisms that allow all parties to participate in the upside.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team" id="team">
+    <p class="section-eyebrow">Our Team</p>
+    <h2 class="section-title">Principals with <em>proven track records.</em></h2>
+    <hr class="rule" />
+
+    <div class="team-grid">
+      <div class="team-card">
+        <p class="team-card-name">Ari Lefkovits</p>
+        <p class="team-card-bio">
+          24+ years of experience in capital solutions and restructuring. Former Managing
+          Director at Lazard, where he led transactions totaling over $300 billion of value
+          across New York and London. Led many of the firm's most complex, award-winning engagements
+          across M&A, restructuring, liability management, and financing.
+        </p>
+        <div class="team-card-pedigree">
+          <span class="pedigree-tag">Lazard</span>
+          <span class="pedigree-tag">Dartmouth AB</span>
+          <span class="pedigree-tag">Stanford JD</span>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <p class="team-card-name">Alice Chong</p>
+        <p class="team-card-bio">
+          Extensive experience advising companies, governments, and stakeholders on complex
+          restructuring, M&amp;A, and financing transactions. Former Managing Director at
+          Guggenheim Securities; previously at Millstein &amp; Co, Duff &amp; Phelps, and Lazard.
+        </p>
+        <div class="team-card-pedigree">
+          <span class="pedigree-tag">Guggenheim Securities</span>
+          <span class="pedigree-tag">Millstein &amp; Co</span>
+          <span class="pedigree-tag">Lazard</span>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <p class="team-card-name">Jay Losty</p>
+        <p class="team-card-bio">
+          5+ years of investment banking experience advising and executing financing
+          transactions across Healthcare, Natural Resources, and Fintech in Leveraged
+          Finance, Structured Finance, and Investment Grade Capital Markets.
+        </p>
+        <div class="team-card-pedigree">
+          <span class="pedigree-tag">Goldman Sachs</span>
+          <span class="pedigree-tag">Yale University</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <p class="section-eyebrow">Contact</p>
+    <h2 class="section-title">Begin a <em>conversation.</em></h2>
+    <hr class="rule-light" />
+
+    <div class="contact-inner">
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="org">Organization</label>
+          <input type="text" id="org" name="org" autocomplete="organization" />
+        </div>
+        <div class="form-group">
+          <label for="interest">Area of Interest</label>
+          <select id="interest" name="interest">
+            <option value="" disabled selected>Select one</option>
+            <option>Financial Advisory</option>
+            <option>Restructuring &amp; Liability Management</option>
+            <option>Private Capital / Investment</option>
+            <option>Integrated Capital &amp; Advisory</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us briefly about your situation or inquiry."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit Inquiry</button>
+      </form>
+
+      <div class="contact-info">
+        <p class="contact-info-lead">
+          We work with a select group of clients and partners on transactions where
+          our involvement genuinely moves the needle. If you are exploring a complex
+          situation — a restructuring, a capital raise, an acquisition, or an investment
+          partnership — we welcome the conversation.
+        </p>
+        <div class="contact-detail">
+          <p class="contact-detail-label">Location</p>
+          <span>New York, NY</span>
+        </div>
+        <div class="contact-detail">
+          <p class="contact-detail-label">General Inquiries</p>
+          <a href="mailto:info@audenpartners.com">info@audenpartners.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Auden<span>&nbsp;Partners</span></div>
+    <p class="footer-copy">&copy; 2026 Auden Partners. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showPanel(name, btn) {
+      document.querySelectorAll('.cap-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.cap-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('panel-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
