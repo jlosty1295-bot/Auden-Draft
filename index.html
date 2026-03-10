@@ -77,6 +77,45 @@
 
     .nav-links a:hover { color: var(--gold-lt); }
 
+    /* ── VALUES TICKER ── */
+    .values-ticker {
+      position: fixed;
+      top: 72px;
+      left: 0; right: 0;
+      z-index: 99;
+      height: 34px;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(184,148,85,0.2);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .values-track {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: valuesTicker 28s linear infinite;
+    }
+
+    .values-item {
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 0 36px;
+    }
+
+    .values-sep {
+      color: rgba(184,148,85,0.35);
+      font-size: 0.7rem;
+    }
+
+    @keyframes valuesTicker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
@@ -597,24 +636,22 @@
     </ul>
   </nav>
 
-  <!-- MARKET TICKER -->
-  <div class="tradingview-widget-container" style="position:fixed;top:72px;left:0;right:0;z-index:99;">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-      "symbols": [
-        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
-        { "proName": "TVC:US10Y",        "title": "10Y Treasury" },
-        { "proName": "TVC:GOLD",         "title": "Gold" },
-        { "proName": "TVC:VIX",          "title": "VIX" }
-      ],
-      "showSymbolLogo": false,
-      "isTransparent": false,
-      "displayMode": "compact",
-      "colorTheme": "dark",
-      "locale": "en"
-    }
-    </script>
+  <!-- VALUES TICKER -->
+  <div class="values-ticker">
+    <div class="values-track">
+      <span class="values-item">Skin in the Game</span><span class="values-sep">·</span>
+      <span class="values-item">Partnership</span><span class="values-sep">·</span>
+      <span class="values-item">Integrity</span><span class="values-sep">·</span>
+      <span class="values-item">Excellence</span><span class="values-sep">·</span>
+      <span class="values-item">Long-Term Thinking</span><span class="values-sep">·</span>
+      <span class="values-item">Stewardship of Capital</span><span class="values-sep">·</span>
+      <span class="values-item">Skin in the Game</span><span class="values-sep">·</span>
+      <span class="values-item">Partnership</span><span class="values-sep">·</span>
+      <span class="values-item">Integrity</span><span class="values-sep">·</span>
+      <span class="values-item">Excellence</span><span class="values-sep">·</span>
+      <span class="values-item">Long-Term Thinking</span><span class="values-sep">·</span>
+      <span class="values-item">Stewardship of Capital</span><span class="values-sep">·</span>
+    </div>
   </div>
 
   <!-- HERO -->
