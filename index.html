@@ -23,10 +23,10 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 124px;
+      scroll-padding-top: 90px;
     }
 
-    section { scroll-margin-top: 124px; }
+    section { scroll-margin-top: 90px; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -123,7 +123,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 180px 60px 100px;
+      padding: 140px 60px 100px;
       position: relative;
       overflow: hidden;
     }
@@ -223,7 +223,7 @@
     }
 
     /* ── SECTION BASE ── */
-    section { padding: 100px 60px; }
+    section { padding: 140px 60px; }
 
     .section-eyebrow {
       font-size: 0.62rem;
@@ -481,7 +481,7 @@
     }
 
     /* ── CONTACT ── */
-    .contact { background: var(--white); }
+    .contact { background: var(--stone); }
 
     hr.rule-light {
       border: none;
@@ -527,6 +527,99 @@
       color: var(--navy);
       border: 1px solid rgba(13,27,42,0.15);
       padding: 3px 10px;
+    }
+
+    /* ── MEDIA ── */
+    .media { background: var(--white); }
+
+    .media-intro {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 640px;
+      margin-top: 32px;
+    }
+
+    .media-selected {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 48px;
+      margin-bottom: 32px;
+    }
+
+    .media-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 720px;
+    }
+
+    .media-item {
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(13,27,42,0.1);
+    }
+
+    .media-item:first-child { border-top: 1px solid rgba(13,27,42,0.1); }
+
+    .media-item-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .media-item-source {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .media-item-title {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+
+    .media-item-date {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      opacity: 0.5;
+      margin-left: auto;
+    }
+
+    .media-item-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .media-item-link {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(13,27,42,0.25);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .media-item-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    .media-footnote {
+      font-size: 0.62rem;
+      color: var(--muted);
+      opacity: 0.6;
+      margin-top: 32px;
+      max-width: 720px;
+      letter-spacing: 0.03em;
     }
 
     /* ── NAME ORIGIN ── */
@@ -664,26 +757,10 @@
       <li><a href="#philosophy">Philosophy</a></li>
       <li><a href="#approach">Our Approach</a></li>
       <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#media">Media</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-
-  <!-- VALUES TICKER -->
-  <div class="values-ticker">
-    <div class="values-track">
-      <span class="values-item">Skin in the Game</span>
-      <span class="values-sep">·</span>
-      <span class="values-item">Partnership</span>
-      <span class="values-sep">·</span>
-      <span class="values-item">Integrity</span>
-      <span class="values-sep">·</span>
-      <span class="values-item">Excellence</span>
-      <span class="values-sep">·</span>
-      <span class="values-item">Long-Term Thinking</span>
-      <span class="values-sep">·</span>
-      <span class="values-item">Stewardship of Capital</span>
-    </div>
-  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -957,6 +1034,64 @@
     </div>
   </section>
 
+  <!-- MEDIA -->
+  <section class="media" id="media">
+    <p class="section-eyebrow">Media &amp; Commentary</p>
+    <h2 class="section-title">Perspectives on <em>markets and capital.</em></h2>
+    <hr class="rule-light" />
+    <p class="media-intro">Professionals at Auden have contributed commentary and insights on private credit, special situations, and value creation across industry publications, podcasts, and conferences.</p>
+    <p class="media-selected">Selected appearances include:</p>
+    <div class="media-list">
+
+      <div class="media-item">
+        <div class="media-item-meta">
+          <p class="media-item-source">Bloomberg Intelligence</p>
+          <p class="media-item-title">Credit Crunch Podcast</p>
+          <p class="media-item-date">Feb 2025</p>
+        </div>
+        <p class="media-item-desc">Discussion on trends in private credit markets, hybrid capital solutions, and navigating balance-sheet stress in the middle market.</p>
+        <a href="https://www.bloomberg.com/professional/insights/markets/delos-lefkovits-on-private-credit-default-trend-credit-crunch/" class="media-item-link" target="_blank" rel="noopener">Listen to the episode</a>
+      </div>
+
+      <div class="media-item">
+        <div class="media-item-meta">
+          <p class="media-item-source">The LAB: Value Creation in Private Equity</p>
+          <p class="media-item-title">Podcast</p>
+          <p class="media-item-date">Oct 2025</p>
+        </div>
+        <p class="media-item-desc">Conversation on special situations investing, restructuring strategy, and building alignment among lenders, sponsors, and management teams.</p>
+        <a href="https://www.thelabpodcastpe.com/episodes/episode-22-lessons-from-the-edge-special-situations-value-creation-w/-ari-lefkovits-from-delos-capital" class="media-item-link" target="_blank" rel="noopener">Listen to the episode</a>
+      </div>
+
+      <div class="media-item">
+        <div class="media-item-meta">
+          <p class="media-item-source">Turnaround Management Association</p>
+          <p class="media-item-title">Journal of Corporate Renewal</p>
+          <p class="media-item-date">Feb 2026</p>
+        </div>
+        <p class="media-item-desc">Article: "Distress in Private Credit: Protecting Recovery While Preserving Key Relationships."</p>
+        <a href="https://www.turnaround.org/journal-issue/january-february-2026/" class="media-item-link" target="_blank" rel="noopener">View the issue</a>
+      </div>
+
+    </div>
+    <p class="media-footnote"><em>* Appearances and publications may have occurred while affiliated with prior organizations.</em></p>
+  </section>
+
+  <!-- NAME ORIGIN -->
+  <section class="name-origin">
+    <div class="dict-entry">
+      <p class="section-eyebrow" style="margin-bottom:28px;">The Name</p>
+      <div class="dict-header">
+        <span class="dict-word">Auden</span>
+        <span class="dict-phonetic">/ˈɔː·dən/</span>
+        <span class="dict-pos">prop. n.</span>
+      </div>
+      <div class="dict-rule"></div>
+      <p class="dict-etymology"><span class="dict-etym-label">Old English</span> &nbsp;"wise old friend"</p>
+      <p class="dict-definition"><em>The name Auden evokes a wise and trusted voice in challenging moments. It reflects our approach: experienced advice, aligned capital, and long-term partnership.</em></p>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <p class="section-eyebrow">Contact</p>
@@ -982,21 +1117,6 @@
         <p class="contact-detail-label">Careers</p>
         <a href="mailto:careers@audenpartners.com">careers@audenpartners.com</a>
       </div>
-    </div>
-  </section>
-
-  <!-- NAME ORIGIN -->
-  <section class="name-origin">
-    <div class="dict-entry">
-      <p class="section-eyebrow" style="margin-bottom:28px;">The Name</p>
-      <div class="dict-header">
-        <span class="dict-word">Auden</span>
-        <span class="dict-phonetic">/ˈɔː·dən/</span>
-        <span class="dict-pos">prop. n.</span>
-      </div>
-      <div class="dict-rule"></div>
-      <p class="dict-etymology"><span class="dict-etym-label">Old English</span> &nbsp;"wise old friend"</p>
-      <p class="dict-definition"><em>The name Auden evokes a wise and trusted voice in challenging moments. It reflects our approach: experienced advice, aligned capital, and long-term partnership.</em></p>
     </div>
   </section>
 
