@@ -912,9 +912,11 @@
 
       .hero { padding: 140px 28px 72px; }
       .hero-rule { display: none; }
-      .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 100%; padding-top: 28px; margin-bottom: 40px; }
-      .hero-stat-value { font-size: 1.55rem; }
-      .hero-stat-label { font-size: 0.5rem; letter-spacing: 0.1em; }
+      .hero-stats { display: flex; flex-direction: column; gap: 0; max-width: 100%; padding-top: 28px; margin-bottom: 40px; }
+      .hero-stats > div { display: flex; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+      .hero-stats > div:first-child { border-top: none; padding-top: 0; }
+      .hero-stat-value { font-size: 1.8rem; margin-bottom: 0; }
+      .hero-stat-label { font-size: 0.58rem; letter-spacing: 0.14em; }
 
       section { padding: 72px 28px; }
 
