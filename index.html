@@ -910,9 +910,11 @@
       .nav-portal { display: none; }
       .nav-hamburger { display: flex; }
 
-      .hero { padding: 160px 28px 72px; }
+      .hero { padding: 140px 28px 72px; }
       .hero-rule { display: none; }
-      .hero-stats { gap: 32px; flex-wrap: wrap; }
+      .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 100%; padding-top: 28px; margin-bottom: 40px; }
+      .hero-stat-value { font-size: 1.55rem; }
+      .hero-stat-label { font-size: 0.5rem; letter-spacing: 0.1em; }
 
       section { padding: 72px 28px; }
 
@@ -994,10 +996,7 @@
     <hr class="rule" />
 
     <p class="cap-intro-single">
-      Auden Partners is a financial advisory and private capital firm focused on delivering
-      creative, purpose-built solutions that address the specific needs of
-      our investors, partners and clients, especially in situations where access to capital is challenging.
-      Our team has completed 150 transactions representing over $550 billion of value across multiple sectors and geographies.
+      Auden Partners is a financial advisory and private capital firm focused on delivering creative, purpose-built solutions that address the specific needs of our investors, partners and clients, particularly in situations where access to capital is challenging. Our team has completed over 150 transactions representing more than $550 billion of value across multiple sectors and geographies.
     </p>
 
     <div class="vp-grid">
